@@ -1,0 +1,22 @@
+Table product {
+  id integer [primary key]
+  title varchar
+  category_id int [not null]
+  brand_id int [not null]
+  unit_price money
+  quantity int
+}
+
+
+table category{
+  id integer [primary key]
+  title varchar
+}
+
+table brand {
+  id integer [primary key]
+  title varchar
+}
+
+Ref: product.brand_id > brand.id
+Ref: product.category_id > category.id
