@@ -1,0 +1,22 @@
+CREATE TABLE "product" (
+  "id" integer PRIMARY KEY,
+  "title" varchar,
+  "category_id" int NOT NULL,
+  "brand_id" int NOT NULL,
+  "unit_price" money,
+  "quantity" int
+);
+
+CREATE TABLE "category" (
+  "id" integer PRIMARY KEY,
+  "title" varchar
+);
+
+CREATE TABLE "brand" (
+  "id" integer PRIMARY KEY,
+  "title" varchar
+);
+
+ALTER TABLE "product" ADD FOREIGN KEY ("brand_id") REFERENCES "brand" ("id");
+
+ALTER TABLE "product" ADD FOREIGN KEY ("category_id") REFERENCES "category" ("id");
