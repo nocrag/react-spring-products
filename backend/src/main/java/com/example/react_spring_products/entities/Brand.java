@@ -12,4 +12,21 @@ public class Brand {
     @NotBlank(message = "Title is required and cannot be empty.")
     private String title;
 
+    public Brand(String title) {
+        this.title = title;
+    }
+
+    public Brand() {}
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }
