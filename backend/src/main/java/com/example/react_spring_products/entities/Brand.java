@@ -10,10 +10,10 @@ public class Brand {
     private Long id;
 
     @NotBlank(message = "Title is required and cannot be empty.")
-    private String title;
+    private String name;
 
     public Brand(String title) {
-        this.title = title;
+        this.name = title;
     }
 
     public Brand() {}
@@ -22,11 +22,11 @@ public class Brand {
         return id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        this.name = title;
     }
 }
