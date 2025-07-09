@@ -2,6 +2,8 @@ package com.example.react_spring_products.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
 @Entity
 public class Brand {
 
@@ -10,6 +12,8 @@ public class Brand {
     private Long id;
 
     @Column(nullable = false, unique = true)
+    @NotBlank(message = "Brand name is required")
+    @Size(min = 2, max = 50, message = "Brand name must be between 2 and 50 characters")
     private String name;
 
     public Brand(String name
