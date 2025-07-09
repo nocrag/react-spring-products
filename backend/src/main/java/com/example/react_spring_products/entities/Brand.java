@@ -9,11 +9,12 @@ public class Brand {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "Title is required and cannot be empty.")
+    @Column(nullable = false, unique = true)
     private String name;
 
-    public Brand(String title) {
-        this.name = title;
+    public Brand(String name
+    ) {
+        this.name = name;
     }
 
     public Brand() {}
@@ -26,7 +27,7 @@ public class Brand {
         return name;
     }
 
-    public void setTitle(String title) {
-        this.name = title;
+    public void setName(String name) {
+        this.name = name;
     }
 }

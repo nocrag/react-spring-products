@@ -18,12 +18,18 @@ public class BrandService {
     }
 
     public Brand createBrand(Brand brand) {
-        Optional<Brand> existingBrand = brandRepository.findByName(brand.getName());
 
-        if (existingBrand.isPresent()) {
+        if (brand.getName() == null || brand.getName().isBlank()) {
+            throw new IllegalArgumentException("Brand name is required");
+        }
+
+        String normalizedName = brand.getName().toLowerCase();
+
+        if (brandRepository.findByName(normalizedName).isPresent()) {
             throw new BrandAlreadyExistsException();
         }
 
+        brand.setName(normalizedName);
         return brandRepository.save(brand);
     }
 }
